@@ -1,0 +1,10 @@
+{
+  "expoServerNgrokUrl": "https://mf-6gy.aarushigaur.customer.exp.direct",
+  "packagerNgrokUrl": "https://mf-6gy.aarushigaur.customer.exp.direct",
+  "ngrokPid": 21884,
+  "expoServerPort": 19001,
+  "devToolsPort": 19003,
+  "packagerPort": 19001,
+  "packagerPid": null,
+  "webpackServerPort": null
+}

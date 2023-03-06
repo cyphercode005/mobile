@@ -1,0 +1,97 @@
+{
+  "project_info": {
+    "project_number": "522421381058",
+    "project_id": "ala-customer",
+    "storage_bucket": "ala-customer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:522421381058:android:dd0b0a32f3c22fb14b985b",
+        "android_client_info": {
+          "package_name": "com.ala.customer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "522421381058-8a5jjun8sksoku7na0kkmqnl6b9b29ch.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGx0cz4arwF0YYH6S0rZ8jYyJ7Lbovje8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "522421381058-8a5jjun8sksoku7na0kkmqnl6b9b29ch.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:522421381058:android:44e23a44d80ffe614b985b",
+        "android_client_info": {
+          "package_name": "com.ala.store"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "522421381058-8a5jjun8sksoku7na0kkmqnl6b9b29ch.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGx0cz4arwF0YYH6S0rZ8jYyJ7Lbovje8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "522421381058-8a5jjun8sksoku7na0kkmqnl6b9b29ch.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:522421381058:android:955e80a598e92e444b985b",
+        "android_client_info": {
+          "package_name": "com.avaron.thechef"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "522421381058-8a5jjun8sksoku7na0kkmqnl6b9b29ch.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGx0cz4arwF0YYH6S0rZ8jYyJ7Lbovje8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "522421381058-8a5jjun8sksoku7na0kkmqnl6b9b29ch.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

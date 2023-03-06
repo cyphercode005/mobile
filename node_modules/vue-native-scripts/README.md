@@ -1,0 +1,100 @@
+# vue-native-scripts
+
+> This package is auto-generated. For pull requests please work with [src/platforms/vue-native/scripts/index.js](https://github.com/GeekyAnts/vue-native-core/tree/develop/src/platforms/vue-native/scripts).
+
+Compile and transform Vue components to React Native.
+
+Find the `vue-native-core` repository [here](https://github.com/GeekyAnts/vue-native-core).
+
+For the official documentation, visit [this](https://vue-native.io/docs/installation.html) website.
+
+## Usage
+
+[Vue Native CLI](https://github.com/GeekyAnts/vue-native-cli) is the recommended way to setup a new Vue Native project. However, if you wish to setup a project from scratch, use the following steps after setting up a React Native / Expo project.
+
+### Step 1: Install
+
+The following packages are required as runtime dependencies by Vue Native:
+- [vue-native-core](https://www.npmjs.com/package/vue-native-core)
+- [vue-native-helper](https://www.npmjs.com/package/vue-native-helper)
+
+During development, another package is required to transpile Vue Native component files (with `.vue` extensions) into JS:
+- [vue-native-scripts](https://www.npmjs.com/package/vue-native-scripts)
+
+To install them, run the following commands in your project directory
+```
+$ npm install --save vue-native-core vue-native-helper
+$ npm install --save-dev vue-native-scripts
+```
+
+### Step 2: Configure the React Native bundler
+
+The Metro bundler is used by React Native to generate app bundles. It can be configured using a `metro.config.js` file. Add the following to your `metro.config.js` (make one to your project's root if you don't have one already):
+
+```js
+const { getDefaultConfig } = require("metro-config");
+
+module.exports = (async () => {
+  const {
+    resolver: { sourceExts }
+  } = await getDefaultConfig();
+  return {
+    transformer: {
+      babelTransformerPath: require.resolve("./vueTransformerPlugin.js"),
+      getTransformOptions: async () => ({
+        transform: {
+          experimentalImportSupport: false,
+          inlineRequires: false,
+        },
+      })
+    },
+    resolver: {
+      sourceExts: [...sourceExts, "vue"]
+    }
+  };
+})();
+```
+
+The `babelTransformPath` property above takes the path to the transformer you wish to use. In our case, we need to create a `vueTransformerPlugin.js` file to the project's root and specify supported extensions:
+
+```js
+// For React Native version 0.59 or later
+var upstreamTransformer = require("metro-react-native-babel-transformer");
+
+// You will need to use different transformers for different React Native versions
+// However, versions older than v0.59 are no longer supported by Vue Native
+
+// For React Native version 0.56 - 0.58
+// var upstreamTransformer = require("metro/src/reactNativeTransformer");
+
+// For React Native version 0.52 - 0.55
+// var upstreamTransformer = require("metro/src/transformer");
+
+// For React Native version 0.47 - 0.51
+// var upstreamTransformer = require("metro-bundler/src/transformer");
+
+// For React Native version 0.46
+// var upstreamTransformer = require("metro-bundler/build/transformer");
+
+var vueNaiveScripts = require("vue-native-scripts");
+var vueExtensions = ["vue"]; // <-- Add other extensions if needed.
+
+module.exports.transform = function({ src, filename, options }) {
+  if (vueExtensions.some(ext => filename.endsWith("." + ext))) {
+    return vueNaiveScripts.transform({ src, filename, options });
+  }
+  return upstreamTransformer.transform({ src, filename, options });
+};
+```
+
+This file conditionally transforms files based on their extensions. `vue-native-scripts` is used for `.vue` files, while the stock React Native Babel transformer is used for other (JS) files.
+
+## Using Vue Native components and `.vue` files
+
+In the React Native application, you can simply `import` your Vue components as follows
+
+```
+import VueComponent from './VueComponent.vue'
+```
+
+There should be a file named `VueComponent.vue` in the corresponding folder; the transformer parses this file and sends it to the React Native bundler.

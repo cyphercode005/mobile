@@ -1,0 +1,89 @@
+{
+    "expo": {
+        "name": "The Chef",
+        "slug": "the-chef",
+        "version": "2.0.0",
+        "orientation": "portrait",
+        "icon": "./assets/icon.png",
+        "splash": {
+            "image": "./assets/splash.png",
+            "resizeMode": "cover",
+            "backgroundColor": "#ffffff"
+        },
+        "updates": {
+            "fallbackToCacheTimeout": 0
+        },
+        "assetBundlePatterns": [
+            "**/*"
+        ],
+        "ios": {
+            "icon": "./assets/icon-ios.png",
+            "bundleIdentifier": "com.avaron.TheChefFoodApp",
+            "buildNumber": "3.6.0",
+            "supportsTablet": true,
+            "infoPlist": {
+                "NSPhotoLibraryUsageDescription": "would like access to your photo gallery",
+                "NSCameraUsageDescription": "would like to use your camera",
+                "NSPhotoLibraryAddUsageDescription": "would like to save photos to your photo gallery",
+                "NSLocationWhenInUseUsageDescription": "Allow MyApp to use your location",
+                "UIBackgroundModes": [
+                    "location",
+                    "fetch"
+                ]
+            },
+            "config": {
+                "googleMapsApiKey": "AIzaSyDv4tbjxizDdu5cz9alkaGdWZydkkf55BQ"
+            }
+        },
+        "android": {
+            "package": "com.avaron.thechef",
+            "useNextNotificationsApi": true,
+            "googleServicesFile": "./assets/google-services.json",
+            "versionCode": 4,
+            "permissions": [
+                "ACCESS_COARSE_LOCATION",
+                "ACCESS_FINE_LOCATION",
+                "ACCESS_BACKGROUND_LOCATION",
+                "READ_EXTERNAL_STORAGE",
+                "CAMERA",
+                "WRITE_EXTERNAL_STORAGE"
+            ],
+            "config": {
+                "googleMaps": {
+                    "apiKey": "AIzaSyDv4tbjxizDdu5cz9alkaGdWZydkkf55BQ"
+                }
+            }
+        },
+        "web": {
+            "favicon": "./assets/favicon.png"
+        },
+        "androidStatusBar": {
+            "barStyle": "light-content"
+        },
+        "packagerOpts": {
+            "config": "metro.config.js",
+            "sourceExts": [
+                "js",
+                "json",
+                "ts",
+                "tsx",
+                "vue",
+                "svg"
+            ]
+        },
+        "notification": {
+            "icon": "./assets/icon.png",
+            "color": "#0e1030"
+        },
+        "hooks": {
+            "postPublish": [{
+                "file": "sentry-expo/upload-sourcemaps",
+                "config": {
+                    "organization": "tnm",
+                    "project": "the-chef",
+                    "authToken": "b071c7a2ccb248fb940bacec1ba5a228d84dd2a71fc64c1a80197405d1193806"
+                }
+            }]
+        }
+    }
+}
